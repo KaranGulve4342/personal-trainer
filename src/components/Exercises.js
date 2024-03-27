@@ -92,7 +92,7 @@ const Exercises = ({ exercises = [], setExercises, bodyPart }) => {
 
         setExercises(exercisesData);
       } catch (error) {
-        console.error("Error fetching exercises:", error);
+        console.error('Error fetching exercises:', error);
         // Handle error, perhaps set an error state to display to the user
       }
     };

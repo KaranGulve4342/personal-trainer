@@ -81,18 +81,17 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         if (Array.isArray(bodyPartsData)) {
           setBodyParts(['all', ...bodyPartsData]);
         } else {
-          console.error("Body parts data is not an array:", bodyPartsData);
+          console.error('Body parts data is not an array:', bodyPartsData);
           // Handle error accordingly, such as setting default value for bodyParts
         }
       } catch (error) {
-        console.error("Error fetching body parts data:", error);
+        console.error('Error fetching body parts data:', error);
         // Handle error accordingly
       }
     };
 
     fetchExercisesData();
   }, []);
-
   // const handleSearch = async () => {
   //   if (search) {
   //     const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
@@ -114,7 +113,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     if (search) {
       try {
         const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-    
         if (Array.isArray(exercisesData)) {
           const searchedExercises = exercisesData.filter(
             (item) => item.name.toLowerCase().includes(search)
@@ -122,17 +120,15 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
                    || item.equipment.toLowerCase().includes(search)
                    || item.bodyPart.toLowerCase().includes(search),
           );
-    
           window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-    
           setSearch('');
           setExercises(searchedExercises);
         } else {
-          console.error("Exercises data is not an array:", exercisesData);
+          console.error('Exercises data is not an array:', exercisesData);
           // Handle error accordingly
         }
       } catch (error) {
-        console.error("Error fetching exercises data:", error);
+        console.error('Error fetching exercises data:', error);
         // Handle error accordingly
       }
     }
